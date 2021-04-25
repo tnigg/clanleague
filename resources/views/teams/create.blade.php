@@ -37,7 +37,7 @@
                             <button class="inline-flex w-full py-2 ml-2 font-bold text-gray-600">
                                 <span class="">Upload Logo</span>
                             </button>
-                            <div></div>
+                            <div>test</div>
                             <input class="absolute block opacity-0 cursor-pointer pin-r pin-t" type="file" name="" multiple>
                         </div>
                     </div>
