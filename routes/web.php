@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
+use PragmaRX\Countries\Package\Countries;
 use App\Http\Controllers\PlayersController;
 
 /*
@@ -26,7 +27,8 @@ Route::get('/players', [UserController::class, 'index'])->name('players.index');
 Route::get('/team/create', [TeamController::class, 'create'])->middleware(['auth'])->name('teams.create');
 
 Route::get('/test', function() {
-    return view('test');
+    $countries = new Countries();
+    echo $countries->where('cca2', 'IT')->first()->hydrateCurrencies()->currencies->EUR->coins->frequent->first();
 });
 
 // Route::get('/dashboard', function () {
