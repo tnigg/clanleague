@@ -15,7 +15,7 @@
         <li class="px-3 py-1 rounded-sm hover:bg-green-300 hover:text-green-50">Inbox</li>
 
         {{-- Check if user is in a team --}}
-        @if (Auth::user()->team_id))
+        @if (Auth::user()->is_manager)
             <li class="px-3 py-1 rounded-sm hover:bg-green-300 hover:text-green-50">Team</li>
         @else
             <li class="px-3 py-1 rounded-sm hover:bg-green-300 hover:text-green-50">Join Team</li>

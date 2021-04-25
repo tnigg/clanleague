@@ -25,6 +25,7 @@ Route::get('/players', [UserController::class, 'index'])->name('players.index');
 
 
 Route::get('/team/create', [TeamController::class, 'create'])->middleware(['auth'])->name('teams.create');
+Route::post('/team/store', [TeamController::class, 'store'])->middleware(['auth'])->name('teams.store');
 
 Route::get('/test', function() {
     $countries = new Countries();

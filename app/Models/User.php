@@ -23,6 +23,7 @@ class User extends Authenticatable
         'race',
         'wins',
         'loss',
+        'is_manager'
     ];
 
     /**
