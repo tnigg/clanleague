@@ -2,6 +2,6 @@
 
 @section('content')
     <div>
-        @include('components.players.show-all-users');
+        @include('components.players.show-all-users')
     </div>
 @endsection

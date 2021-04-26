@@ -19,12 +19,13 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-
             $table->boolean('is_manager')->default(0);
-            $table->string('race')->nullable();
-            //$table->unsignedBigInteger('team_id');
+            $table->string('race')->nullable();            
             $table->float('wins')->default(0);
             $table->float('loss')->default(0);            
+
+            $table->unsignedBigInteger('team_id')->nullable();
+            $table->foreign('team_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->rememberToken();
             $table->timestamps();

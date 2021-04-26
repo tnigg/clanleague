@@ -23,7 +23,8 @@ class User extends Authenticatable
         'race',
         'wins',
         'loss',
-        'is_manager'
+        'is_manager',   
+        'team_id',           
     ];
 
     /**
@@ -44,4 +45,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function team() {
+        return $this->belongsTo(Team::class);
+    }    
 }

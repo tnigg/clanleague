@@ -23,9 +23,14 @@ Route::get('/', function () {
 
 Route::get('/players', [UserController::class, 'index'])->name('players.index');
 
+Route::middleware(['auth'])->prefix('team')->group(function () {
+    Route::get('/create', [TeamController::class, 'create'])->name('teams.create');
+    Route::post('/store', [TeamController::class, 'store'])->name('teams.store');    
+});
 
-Route::get('/team/create', [TeamController::class, 'create'])->middleware(['auth'])->name('teams.create');
-Route::post('/team/store', [TeamController::class, 'store'])->middleware(['auth'])->name('teams.store');
+
+
+
 
 Route::get('/test', function() {
     $countries = new Countries();
