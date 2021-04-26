@@ -43,8 +43,8 @@
                 </div>
                 <div class="hidden my-auto overflow-hidden md:w-1/6 min-w-min md:block sm:w-1/4">
                     @if ($user->team_id)
-                        <p> Templar of Twilight</p>
-                        <p class="text-sm font-semibold tracking-wide text-gray-500">ToT)</p>
+                        <p> {{ $user->team->name }}</p>
+                        <p class="text-sm font-semibold tracking-wide text-gray-500">{{ $user->team->tag }}</p>
                     @else
                         <p class="">No Team</p>
                     @endif

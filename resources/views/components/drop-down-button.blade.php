@@ -1,7 +1,13 @@
 <div class="inline-block group">
     <button
         class="flex items-center px-3 py-1 border-b border-green-700 rounded-sm outline-none hover:border-green-50 hover:bg-green-300 bg-green-50 focus:outline-none min-w-32 hover:text-green-50">
-        <span class="flex-1 pr-1 text-sm font-semibold sm:text-base ">ToTTNTdiNuDiNuDiTTT</span>
+        <span class="flex-1 pr-1 text-sm font-semibold sm:text-base ">
+            @if (Auth::user()->team_id)
+                {{ Auth::user()->team->tag }} | {{ Auth::user()->name }}
+            @else
+                {{ Auth::user()->name }}
+            @endif
+        </span>
         <span>
             <svg class="w-4 h-4 transition duration-150 ease-in-out transform fill-current group-hover:-rotate-180"
                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -15,8 +21,9 @@
         <li class="px-3 py-1 rounded-sm hover:bg-green-300 hover:text-green-50">Inbox</li>
 
         {{-- Check if user is in a team --}}
-        @if (Auth::user()->team_id == 1)
-            <li class="px-3 py-1 rounded-sm hover:bg-green-300 hover:text-green-50">Team</li>
+        @if (Auth::user()->team_id)
+            <li class="px-3 py-1 rounded-sm hover:bg-green-300 hover:text-green-50"><a
+                    href="{{ route('teams.show', Auth::user()->team->name) }}">Team</a></li>
         @else
             <li class="px-3 py-1 rounded-sm hover:bg-green-300 hover:text-green-50">Join Team</li>
             <li class="px-3 py-1 rounded-sm hover:bg-green-300 hover:text-green-50"><a
@@ -31,8 +38,6 @@
             <form id="logout-form" action="{{ route('logout') }}" method="post" class="hidden">
                 @csrf
             </form>
-
-
         </li>
     </ul>
 </div>

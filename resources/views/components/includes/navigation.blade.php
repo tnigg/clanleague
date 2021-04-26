@@ -15,7 +15,7 @@
                 class="px-2 py-1 transition ease-in-out bg-green-400 border-b border-green-300 rounded-sm shadow-lg hover:border-green-700 duration-400 hover:bg-green-50 hover:text-green-400">Home</a>
             <a href=""
                 class="px-2 py-1 transition ease-in-out bg-green-400 border-b border-green-300 rounded-sm shadow-lg hover:border-green-700 duration-400 hover:bg-green-50 hover:text-green-400">Leagues</a>
-            <a href=""
+            <a href="{{ route('teams.index') }}"
                 class="px-2 py-1 transition ease-in-out bg-green-400 border-b border-green-300 rounded-sm shadow-lg hover:border-green-700 duration-400 hover:bg-green-50 hover:text-green-400">Teams</a>
             <a href="{{ route('players.index') }}"
                 class="px-2 py-1 transition ease-in-out bg-green-400 border-b border-green-300 rounded-sm shadow-lg hover:border-green-700 duration-400 hover:bg-green-50 hover:text-green-400">Players</a>
