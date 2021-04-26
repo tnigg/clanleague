@@ -12,7 +12,9 @@
             @if (!Auth::user()->team_id)
                 <div class="pb-4 mt-6">
                     <nav>
-                        <a href="" class="p-2 bg-gray-700 rounded text-gray-50">Request to join</a>
+                        <a href="{{ route('invites.join', $team) }}" class="p-2 bg-gray-700 rounded text-gray-50">Request
+                            to
+                            join</a>
                     </nav>
                 </div>
             @endif
@@ -23,7 +25,9 @@
         </div>
     </div>
 
-
+    <div class="text-center">
+        <a href="{{ route('teams.requests') }}">Show join requests</a>
+    </div>
 
     <div class="bg-gray-200 border-t border-b border-gray-300 shadow mt-7">
         <div class="p-2 text-center">
