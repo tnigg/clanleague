@@ -49,4 +49,8 @@ class User extends Authenticatable
     public function team() {
         return $this->belongsTo(Team::class);
     }    
+
+    public function invites() {
+        return $this->morphMany('App\Models\Invite', 'inviteable');
+    }
 }

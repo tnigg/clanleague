@@ -15,4 +15,8 @@ class Team extends Model
         return $this->hasMany(User::class);
     }
 
+    public function invites() {
+        return $this->morphMany('App\Models\Invite', 'inviteable');
+    }
+
 }
