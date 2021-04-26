@@ -11,4 +11,8 @@ class Team extends Model
 
     protected $fillable = ['name', 'tag', 'homepage', 'country', 'logo'];
 
+    public function users() {
+        return $this->hasMany(User::class);
+    }
+
 }
