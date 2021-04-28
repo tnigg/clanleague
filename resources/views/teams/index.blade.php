@@ -21,13 +21,13 @@
                     Division
                 </div>
                 <div class="hidden overflow-hidden sm:block sm:w-1/4 md:w-1/6">
-                    Founded
-                </div>
-                <div class="hidden overflow-hidden md:w-1/6 lg:block">
                     Homepage
                 </div>
                 <div class="hidden overflow-hidden md:w-1/6 lg:block">
-                    Logo
+                    Manager
+                </div>
+                <div class="hidden overflow-hidden md:w-1/6 lg:block">
+                    Recruiting
                 </div>
                 <div class="w-1/2 overflow-hidden md:w-1/6 sm:w-1/4">
                     Details
@@ -50,13 +50,16 @@
 
                     </div>
                     <div class="hidden my-auto ml-0 overflow-hidden md:w-1/6 sm:w-1/4 sm:block">
-                        Woop
-                    </div>
-                    <div class="hidden my-auto overflow-hidden md:w-1/6 lg:block">
+
                         {{ $team->homepage }}
                     </div>
                     <div class="hidden my-auto overflow-hidden md:w-1/6 lg:block">
-                        Logo
+                        @foreach ($team->users->where('is_manager', 1) as $user)
+                            {{ $user->name }}
+                        @endforeach
+                    </div>
+                    <div class="hidden my-auto overflow-hidden md:w-1/6 lg:block">
+                        Yes
                     </div>
                     <div class="w-1/2 my-auto overflow-hidden font-semibold text-gray-400 md:w-1/6 sm:w-1/4">
                         <a href="{{ route('teams.show', $team->name) }}">Details</a>

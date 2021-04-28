@@ -26,7 +26,7 @@ class StoreTeamRequest extends FormRequest
         return [
             'name' => ['max:20', 'min:3', 'unique:teams', 'string', 'required'],
             'tag' => ['max: 4','min: 2', 'regex: /[a-zA-Z]+/', 'required', 'unique:teams'],
-            'homepage' => ['min:8', 'max: 24', 'nullable'],
+            'homepage' => ['min:8', 'max: 30', 'nullable'],
             'country' => ['min: 1', 'required'],
             'filename' => ['image'],
         ];
