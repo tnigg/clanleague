@@ -20,9 +20,10 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('is_manager')->default(0);
-            $table->string('race')->nullable();            
+            $table->string('race')->nullable(); 
+            $table->string('battletag')->nullable();           
             $table->float('wins')->default(0);
-            $table->float('loss')->default(0);            
+            $table->float('loss')->default(0);                       
 
             $table->unsignedBigInteger('team_id')->nullable();
             $table->foreign('team_id')->references('id')->on('users')->onDelete('cascade');

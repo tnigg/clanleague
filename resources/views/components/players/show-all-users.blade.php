@@ -61,7 +61,7 @@
                     {{ $winRatio[$user->id] }} %
                 </div>
                 <div class="w-1/2 my-auto overflow-hidden font-semibold text-gray-400 md:w-1/6 sm:w-1/4">
-                    Details
+                    <a href="{{ route('profiles.index', $user->name) }}">Details</a>
                 </div>
             </div>
         @endforeach

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\StoreTeamRequest;
 
 class TeamController extends Controller
 {
@@ -23,20 +24,15 @@ class TeamController extends Controller
     public function create() {
         return view('teams.create');
     }
-    public function store(Request $request) {        
+    public function store(StoreTeamRequest $request) {  
+
         // Store new Team
-        $team = new Team;
-        $team->name = $request->name;        
-        $team->tag = $request->tag;
-        $team->homepage = $request->homepage;     
-        $team->country = $request->country; 
-        $team->save();        
+        $team = Team::create($request->validated());        
 
         // Get Logged in User and set is_manager and team_id
         $user = Auth::user(); 
         $user->update(['is_manager' => 1]);              
-        $team->users()->save($user);  
-        // $user = Auth::setUser($user);
+        $team->users()->save($user);          
         
         return redirect(route('index'));
     }
