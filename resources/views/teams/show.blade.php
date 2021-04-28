@@ -89,7 +89,11 @@
                             class="text-red-500">{{ $user->loss }}</span>
                     </div>
                     <div class="hidden my-auto overflow-hidden md:w-1/6 lg:block">
-                        Needs to be fixed
+                        @if ($user->wins || $user->loss)
+                            {{ round(($user->wins / ($user->wins + $user->loss)) * 100, 2) }}
+                        @else
+                            N/A
+                        @endif
                     </div>
                     <div class="w-1/2 my-auto overflow-hidden font-semibold text-gray-400 md:w-1/6 sm:w-1/4">
                         Details

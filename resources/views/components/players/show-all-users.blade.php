@@ -58,7 +58,11 @@
                         class="text-red-500">{{ $user->loss }}</span>
                 </div>
                 <div class="hidden my-auto overflow-hidden md:w-1/6 lg:block">
-                    {{ $winRatio[$user->id] }} %
+                    @if ($user->wins || $user->loss)
+                        {{ round(($user->wins / ($user->wins + $user->loss)) * 100, 2) }}
+                    @else
+                        N/A
+                    @endif
                 </div>
                 <div class="w-1/2 my-auto overflow-hidden font-semibold text-gray-400 md:w-1/6 sm:w-1/4">
                     <a href="{{ route('profiles.index', $user->name) }}">Details</a>

@@ -17,8 +17,8 @@ class TeamController extends Controller
     }
 
     public function show(Team $team) {         
-        $users = $team->users->all();
-
+        $users = $team->users()->get();
+        // dd($users);
         return view('teams.show', compact(['team', 'users']));
     }
 
