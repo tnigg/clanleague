@@ -12,6 +12,16 @@
         {{-- !!!!! CREATE CARD !!!!! --}}
         <div class="max-w-xl mx-auto">
             <div class="py-4 shadow-md bg-gray-50">
+                {{-- Display Errors --}}
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
 
                 <form action="{{ route('teams.store') }}" method="POST" id="createTeamForm">
                     @csrf

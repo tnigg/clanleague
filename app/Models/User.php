@@ -24,7 +24,8 @@ class User extends Authenticatable
         'wins',
         'loss',
         'is_manager',   
-        'team_id',           
+        'team_id',  
+        'battletag',         
     ];
 
     /**

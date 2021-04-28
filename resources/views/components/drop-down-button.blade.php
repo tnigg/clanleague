@@ -17,7 +17,8 @@
     </button>
     <ul
         class="absolute transition duration-150 ease-in-out origin-top transform scale-0 bg-white border rounded-sm cursor-pointer group-hover:scale-100 min-w-32">
-        <li class="px-3 py-1 rounded-sm hover:bg-green-300 hover:text-green-50">Profile</li>
+        <li class="px-3 py-1 rounded-sm hover:bg-green-300 hover:text-green-50"><a
+                href="{{ route('profiles.index', Auth::user()->name) }}">Profile</a></li>
         <li class="px-3 py-1 rounded-sm hover:bg-green-300 hover:text-green-50">Inbox</li>
 
         {{-- Check if user is in a team --}}
