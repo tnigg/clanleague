@@ -18,5 +18,9 @@ class Team extends Model
     public function invites() {
         return $this->morphMany('App\Models\Invite', 'inviteable');
     }
+    
+    public function images() {
+        return $this->morphMany('App\Models\Image', 'imageable');
+    }
 
 }

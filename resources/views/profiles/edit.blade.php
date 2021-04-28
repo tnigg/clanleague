@@ -20,9 +20,10 @@
                     </div>
                 @endif
 
-                <form action="{{ route('profiles.update', $user) }}" method="POST" id="updateProfileForm">
+                <form action="{{ route('profiles.update', $user) }}" method="POST" id="updateProfileForm"
+                    enctype="multipart/form-data">
                     @csrf
-                    @method('put')
+
                     <div class="flex px-4 mt-8 space-x-8 ">
 
                         {{-- Username --}}
@@ -64,7 +65,11 @@
                             </div>
                         </div>
                     </div>
-
+                    {{-- File upload --}}
+                    <p class="px-4 mt-10 font-semibold text-gray-600 uppercase">Upload Avatar</p>
+                    <div class="px-4 py-2 mt-1 border-t border-b border-gray-600">
+                        <input class="block w-full cursor-pointer pin-r pin-t" type="file" name="filename">
+                    </div>
 
                     {{-- BUTTONS --}}
                     <div class="flex justify-between w-full px-3 sm:px-8 mt-14">
@@ -83,7 +88,6 @@
                             </a>
                         </div>
                     </div>
-
 
                 </form>
             </div>
