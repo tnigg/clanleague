@@ -37,7 +37,7 @@ Route::middleware(['auth'])->prefix('team')->group(function () {
 
 Route::get('/players/profile/{user:name}', [ProfileController::class, 'index'])->name('profiles.index');
 Route::get('/players/profile/edit/{user:name}', [ProfileController::class, 'edit'])->name('profiles.edit');
-Route::put('/players/profile/update/{user:name}', [ProfileController::class, 'update'])->name('profiles.update');
+Route::post('/players/profile/update/{user:name}', [ProfileController::class, 'update'])->name('profiles.update');
 Route::get('/invite/store/{team}', [InviteController::class, 'store'])->name('invites.join');
 Route::get('/invite/accept/{user}', [InviteController::class, 'accept'])->name('invites.accept');
 

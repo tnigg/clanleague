@@ -23,7 +23,7 @@
                     </div>
                 @endif
 
-                <form action="{{ route('teams.store') }}" method="POST" id="createTeamForm">
+                <form action="{{ route('teams.store') }}" method="POST" id="createTeamForm" enctype="multipart/form-data">
                     @csrf
                     <div class="flex px-4 mt-8 space-x-8 ">
 
@@ -67,9 +67,9 @@
                     </div>
 
                     {{-- FILE UPLOAD --}}
-                    <div class="relative overflow-hidden border-t border-b border-gray-600 mt-14">
-                        <x-teams.upload-logo-button />
-                        <input class="absolute block opacity-0 cursor-pointer pin-r pin-t" type="file" name="" multiple>
+                    <p class="px-4 mt-10 font-semibold text-gray-600 uppercase">Upload Logo</p>
+                    <div class="px-4 py-2 mt-1 border-t border-b border-gray-600">
+                        <input class="block w-full cursor-pointer pin-r pin-t" type="file" name="filename">
                     </div>
 
                     {{-- BUTTONS --}}

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Team;
+use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreTeamRequest;
@@ -28,12 +29,12 @@ class TeamController extends Controller
 
         // Store new Team
         $team = Team::create($request->validated());        
-
+        Image::uploadImage($request, $team);
         // Get Logged in User and set is_manager and team_id
         $user = Auth::user(); 
         $user->update(['is_manager' => 1]);              
         $team->users()->save($user);          
         
         return redirect(route('index'));
-    }
+    }  
 }
